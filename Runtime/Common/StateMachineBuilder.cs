@@ -46,11 +46,6 @@ namespace Qw1nt.FiniteStateMachine.Runtime.Common
             Map.Add(instance.Id, instance);
         }
 
-        public void AddState<T>() where T : class, IState, new()
-        {
-            AddState(new T());
-        }
-
         public void AddTransition(ulong from, ulong to)
         {
             var transition = new Transition(from, to);
@@ -62,24 +57,7 @@ namespace Qw1nt.FiniteStateMachine.Runtime.Common
 
             AvailableTransitionsHashes.Add(transition.Hash);
         }
-
-        public void AddTransition<TFrom, TTo>()
-            where TFrom : class, IState
-            where TTo : class, IState
-        {
-            var from = FindState<TFrom>();
-            var to = FindState<TTo>();
-
-            AddTransition(from.Id, to.Id);
-        }
-
-        public void AddTransition<TFrom, TTo>(TFrom from, TTo to)
-            where TFrom : class, IState
-            where TTo : class, IState
-        {
-            AddTransition(from.Id, to.Id);
-        }
-
+        
         public void SetInitialState(ulong stateId)
         {
 #if UNITY_EDITOR
@@ -100,12 +78,6 @@ namespace Qw1nt.FiniteStateMachine.Runtime.Common
             SetInitialState(state.Id);
         }
         
-        public void SetInitialState<TState>()
-            where TState : IState
-        {
-            SetInitialState(FindState<TState>().Id);
-        }
-
         public StateMachine Build()
         {
 #if UNITY_EDITOR
