@@ -31,10 +31,10 @@ public class Idle : StateBase
   ```
 - #### Добавление состояния 
   ```csharp
-  // Добавление состояния с конструкторов без параметров
+  // Добавление состояния через generic-аргумент
   builder.AddState<Idle>();
   
-  // Добавление состояния с параметрами 
+  // Добавление состояния с передачей экземпляра 
   builder.AddState<Running>(new Running(movementSpeed: 5f))
   ```
   
