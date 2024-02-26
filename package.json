@@ -1,0 +1,13 @@
+﻿{
+    "name": "com.qw1nt.finite-state-machine",
+    "version": "0.0.1",
+    "displayName": "Finite State Machine",
+    "unity": "2020.3",
+    "author": {
+      "name": "Qw1nt"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/Qw1nt/finite-state-machine.git"
+    }
+  }
